@@ -1,0 +1,79 @@
+﻿@model List<ShopSi.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="cart-items">
+
+    <div class="container">
+        <h2>Giỏ hàng của tôi</h2>
+        <div class="cart-gd">
+
+            @if (Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+
+                    <div class="cart-header">
+
+                        <div class="cart-sec simpleCart_shelfItem">
+                            <div class="cart-item cyc">
+                                <img src="@item.Product.Image" class="img-responsive" alt="">
+                            </div>
+                            <div class="cart-item-info">
+                                <h3><a href="/chi-tiet/@item.Product.MetaTitle-@item.Product.ID"> @item.Product.Name </a></h3>
+
+                                <p style="white-space:pre">Mã sản phẩm: @item.Product.Code</p> <br />
+                                <p style="white-space:pre">Số lượng:    <input type="text" class="txtquantity" data-id="@item.Product.ID" value="@item.Quantity" /></p><br />
+                                <p style="white-space:pre">Đơn giá:     @item.Product.Price ₫</p><br />
+                                <p style="white-space:pre">Thành tiền:  @(item.Product.Price * item.Quantity) ₫</p><br />
+                                <p><a href="#" class="deleteID" data-id="@item.Product.ID">Xóa sản phẩm</a></p>
+                            </div>
+
+
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+
+                }
+
+             }
+
+           
+        </div>
+
+        <h2>Thông tin liên hệ</h2>
+
+        <div class="section group">
+            <div class="col-md-6">
+                @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <label style="color: #816263">Người nhận hàng:</label>
+                        <input style="color: #816263" name="shipname" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color: #816263">Số điện thoại:</label>
+                        <input style="color: #816263" name="phone" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color: #816263">Địa chỉ:</label>
+                        <input style="color: #816263" name="address" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color: #816263">Email:</label>
+                        <input style="color: #816263" name="email" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn" style="color: white;background-color: #816263" >Gửi đơn hàng</button>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

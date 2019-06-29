@@ -1,0 +1,178 @@
+﻿@model List<Models.EF.ProductType>
+@{
+    var productCate1 = (List<Models.EF.Product__Category>)ViewBag.ProductCate1;
+    var productCate2 = (List<Models.EF.Product__Category>)ViewBag.ProductCate2;
+    var productCate3 = (List<Models.EF.Product__Category>)ViewBag.ProductCate3;
+}
+
+<div class="product-listy">
+    <h2>Danh mục sản phẩm</h2>
+    <ul class="product-list">
+        <li class="nav-item dropdown">
+            <span class="dropdown-header" style="color:white; font-weight:700">THỜI TRANG NAM:</span>
+             
+            @foreach (var item in Model)
+            {
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-layer-group"></i>
+                        <span>@item.Name</span>
+                    </a>
+                    <div class="dropdown-menu" style="background-color:darkgrey" aria-labelledby="pagesDropdown">
+                       @if (item.ID == 1)
+                       {
+                           foreach (var item1 in productCate1)
+                           {
+                            <a class="dropdown-item" href="/san-pham/@item.MetaTitle/@item1.MetaTitle-@item1.ID">@item1.Name</a>
+                           }
+                       }
+                       else if (item.ID == 2)
+                       {
+                           foreach (var item1 in productCate2)
+                           {
+                            <a class="dropdown-item" href="/san-pham/@item.MetaTitle/@item1.MetaTitle-@item1.ID">@item1.Name</a>
+                           }
+                       }
+                       else
+                       {
+                           foreach (var item1 in productCate3)
+                           {
+                            <a class="dropdown-item" href="/san-pham/@item.MetaTitle/@item1.MetaTitle-@item1.ID">@item1.Name</a>
+                           }
+                       }
+
+
+                    </div>
+                </div>
+            }           
+           
+        </li>
+        <li class="nav-item dropdown">
+            <span class="dropdown-header"  style="color:white; font-weight:700">THỜI TRANG NỮ:</span>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Áo</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                    <a class="dropdown-item" href="login.html">Thiết lập</a>
+                    <a class="dropdown-item" href="register.html">Danh mục</a>
+                    <a class="dropdown-item" href="forgot-password.html">Tính năng</a>
+                    <a class="dropdown-item" href="register.html">Trạng thái</a>
+                    <a class="dropdown-item" href="forgot-password.html">Sản phẩm</a>
+
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Quần</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                    <a class="dropdown-item" href="login.html">Thiết lập</a>
+                    <a class="dropdown-item" href="register.html">Danh mục</a>
+                    <a class="dropdown-item" href="forgot-password.html">Tính năng</a>
+                    <a class="dropdown-item" href="register.html">Trạng thái</a>
+                    <a class="dropdown-item" href="forgot-password.html">Sản phẩm</a>
+
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Phụ kiện</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                    <a class="dropdown-item" href="login.html">Thiết lập</a>
+                    <a class="dropdown-item" href="register.html">Danh mục</a>
+                    <a class="dropdown-item" href="forgot-password.html">Tính năng</a>
+                    <a class="dropdown-item" href="register.html">Trạng thái</a>
+                    <a class="dropdown-item" href="forgot-password.html">Sản phẩm</a>
+
+                </div>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <span class="dropdown-header"  style="color:white; font-weight:700">THỜI TRANG TRẺ EM:</span>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Áo</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                    <a class="dropdown-item" href="login.html">Thiết lập</a>
+                    <a class="dropdown-item" href="register.html">Danh mục</a>
+                    <a class="dropdown-item" href="forgot-password.html">Tính năng</a>
+                    <a class="dropdown-item" href="register.html">Trạng thái</a>
+                    <a class="dropdown-item" href="forgot-password.html">Sản phẩm</a>
+
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Quần</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                    <a class="dropdown-item" href="login.html">Thiết lập</a>
+                    <a class="dropdown-item" href="register.html">Danh mục</a>
+                    <a class="dropdown-item" href="forgot-password.html">Tính năng</a>
+                    <a class="dropdown-item" href="register.html">Trạng thái</a>
+                    <a class="dropdown-item" href="forgot-password.html">Sản phẩm</a>
+
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Phụ kiện</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                    <a class="dropdown-item" href="login.html">Thiết lập</a>
+                    <a class="dropdown-item" href="register.html">Danh mục</a>
+                    <a class="dropdown-item" href="forgot-password.html">Tính năng</a>
+                    <a class="dropdown-item" href="register.html">Trạng thái</a>
+                    <a class="dropdown-item" href="forgot-password.html">Sản phẩm</a>
+
+                </div>
+            </div>
+        </li>        
+    </ul>
+       
+</div>
+<div class="latest-bis">
+    <img src="/assets/client/images/ao/somi/smxanh.jpg" class="img-responsive" alt="" />
+    <div class="offer">
+        <p>40%</p>
+        <small>Top Offer</small>
+    </div>
+</div>
+<div class="tags">
+    <h4 class="tag_head">Tags Widget</h4>
+    <ul class="tags_links">
+        <li><a href="#">Kitesurf</a></li>
+        <li><a href="#">Super</a></li>
+        <li><a href="#">Duper</a></li>
+        <li><a href="#">Theme</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Equipment</a></li>
+        <li><a href="#">Best</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Apparel</a></li>
+        <li><a href="#">Super</a></li>
+        <li><a href="#">Duper</a></li>
+        <li><a href="#">Theme</a></li>
+        <li><a href="#">Responsive</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Equipment</a></li>
+    </ul>
+
+</div>

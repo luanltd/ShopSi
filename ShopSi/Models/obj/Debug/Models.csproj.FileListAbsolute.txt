@@ -1,0 +1,14 @@
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\Models.dll.config
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\Models.dll
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\Models.pdb
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\EntityFramework.dll
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\EntityFramework.xml
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\HOC LAP TRINH\MVC\ShopSi\Models\obj\Debug\Models.dll
+E:\HOC LAP TRINH\MVC\ShopSi\Models\obj\Debug\Models.pdb
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\PagedList.dll
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\PagedList.Mvc.dll
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\PagedList.xml
+E:\HOC LAP TRINH\MVC\ShopSi\Models\bin\Debug\PagedList.Mvc.xml
+E:\HOC LAP TRINH\MVC\ShopSi\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

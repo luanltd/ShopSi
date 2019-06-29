@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+        height: 400px;
+        width:100%
+    }
+    /* Optional: Makes the sample page fill the window. */
+   
+   
+</style>
+
+
+@section jsFooter{
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneU4BJt2fcpVRqzPR2XkbzFyF6WJWlaQ&callback=initMap">
+</script>
+
+<script>
+
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+
+      function initMap() {
+          var uluru = { lat: 10.8763978, lng: 106.7996541 };
+          var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: uluru
+        });
+
+        var contentString = "Shop Si";
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          title: 'Địa chỉ'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initMap);
+</script>
+
+    
+}
+<div class="contact">
+    <div class="container">
+        <div class="dreamcrub">
+            <ul class="breadcrumbs">
+                <li class="home">
+                    <a href="/" title="Go to Home Page">Home</a>&nbsp;
+                    <span>&gt;</span>
+                </li>
+                <li class="women">
+                    Liên hệ
+                </li>
+            </ul>
+            <ul class="previous">
+                <li><a href="/">Back to Previous Page</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="contact-info">
+            <h2 style="color: #816263">BẢN ĐỒ</h2>
+            <div id="map"></div>
+        </div>     
+          
+        
+        <div class="contact-form">
+            <div class="contact-info">
+                <h3 style="color: #816263">THÔNG TIN PHẢN HỒI</h3>
+            </div>
+           @using (Html.BeginForm("FeedBack", "Contact", FormMethod.Post))
+           {
+                <div class="contact-left">
+                    <div class="form-group">
+                        <label style="color: #816263">Khách hàng:</label>
+                        <input style="color: #816263" name="name" class="form-control" placeholder="Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #816263">Số điện thoại:</label>
+                        <input style="color: #816263" name="phone" class="form-control" placeholder="Phone" required />
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #816263">Địa chỉ:</label>
+                        <input style="color: #816263" name="address" class="form-control" placeholder="Address" required/>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #816263">Email:</label>
+                        <input style="color: #816263" name="email" class="form-control" placeholder="Email" required/>
+                    </div>                  
+                </div>
+                <div class="contact-right">
+                    <div class="form-group">
+                        <label style="color: #816263">Nội dung phản hồi:</label>
+                        <textarea placeholder="Message" required name="content"></textarea>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <button type="submit" class="btn" style="color: white;background-color: #816263">Gửi phản hồi</button>
+           }
+        </div>
+    </div>
+</div>
+<!-- //contact-page -->

@@ -1,0 +1,27 @@
+﻿@model List<Models.EF.Menu>
+
+<div class="header-top-left">
+   @{ var session =(ShopSi.Common.CommonLogin)Session[ShopSi.Common.CommonConstant.user_session];}
+    @if (session == null)
+    {
+     <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="@item.Link" target="@item.Target"><span class="glyphicon glyphicon-user"> </span>@item.Text</a></li>
+        }
+         <li><a href="/Admin/Login" style="color:antiquewhite">Đăng nhập Admin</a></li>
+    </ul>
+    }
+    else
+    {
+        <ul>
+            <li>@Html.ActionLink("Thoát", "Logout", "User")</li>
+            <li><h5 class="glyphicon glyphicon-user" style="color:white">Hello: @session.UserName</h5></li>
+            
+        </ul>
+    }
+</div>
+    
+       
+       @* <li><a href="register.html"><span class="glyphicon glyphicon-lock"> </span>Create an Account</a></li>*@
+  

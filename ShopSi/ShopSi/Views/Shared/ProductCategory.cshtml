@@ -1,0 +1,46 @@
+﻿@model List<Models.EF.ProductType>
+@{ 
+    var productCate1 = (List<Models.EF.Product__Category>)ViewBag.ProductCate1;
+    var productCate2 = (List<Models.EF.Product__Category>)ViewBag.ProductCate2;
+    var productCate3 = (List<Models.EF.Product__Category>)ViewBag.ProductCate3;
+}
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4">
+            <ul class="multi-column-dropdown">
+                <h6>@item.Name</h6>
+
+
+                @if (item.ID == 1)
+                {
+                    foreach (var item1 in productCate1)
+                    {
+                        <li><a href="/san-pham/@item.MetaTitle/@item1.MetaTitle-@item1.ID">@item1.Name</a></li>
+                    }
+                }
+                else if (item.ID == 2)
+                {
+                    foreach (var item2 in productCate2)
+                    {
+                        <li><a href="/san-pham/@item.MetaTitle/@item2.MetaTitle-@item2.ID">@item2.Name</a></li>
+                    }
+                }
+                else
+                {
+                    foreach (var item3 in productCate3)
+                    {
+                        <li><a href="/san-pham/@item.MetaTitle/@item3.MetaTitle-@item3.ID">@item3.Name</a></li>
+                    }
+                }
+
+
+
+            </ul>
+        </div>
+    }
+  
+    <div class="clearfix"></div>
+</div>

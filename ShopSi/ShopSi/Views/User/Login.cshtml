@@ -1,0 +1,59 @@
+﻿@model ShopSi.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container">
+        <div class="login-page">
+            <div class="dreamcrub">
+                <ul class="breadcrumbs">
+                    <li class="home">
+                        <a href="/" title="Go to Home Page">Home</a>&nbsp;
+                        <span>&gt;</span>
+                    </li>
+                    <li class="women">
+                        Login
+                    </li>
+                </ul>
+                <ul class="previous">
+                    <li><a href="/">Back to Previous Page</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="account_grid">
+                <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
+                    <h2>KHÁCH HÀNG MỚI</h2>
+                    <p>Bằng cách tạo tài khoản với cửa hàng của chúng tôi, bạn sẽ có thể chuyển qua quy trình thanh toán nhanh hơn, lưu trữ nhiều địa chỉ giao hàng, xem và theo dõi đơn hàng của bạn trong tài khoản của bạn và hơn thế nữa.</p>
+                    <a class="acount-btn" href="/dang-ki">Đăng ký</a>
+                </div>
+                <div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
+                    <h3>ĐĂNG KÝ KHÁCH HÀNG</h3>
+                    <p>Nếu bạn đã có tài khoản với chúng tôi, xin vui lòng đăng nhập!</p>
+                    @using (Html.BeginForm("Login", "User", FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        <div class="form-group">                           
+                                <label for="inputUserName">Tài khoản</label>
+                                @Html.TextBoxFor(Model => Model.UserName, new { @class = "form-control", @autofocus = "autofocus" })
+                     
+                        </div>
+                        <div class="form-group">                            
+                                <label for="inputPassword">Mật khẩu</label>
+                                @Html.PasswordFor(Model => Model.Password, new { @class = "form-control", @autofocus = "autofocus" })
+                          
+                        </div>
+                        <a class="forgot" href="#">Forgot Your Password?</a>
+                        <button type="submit" class="btn btn-success">Đăng nhập</button>
+                    }
+                      
+                   
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+

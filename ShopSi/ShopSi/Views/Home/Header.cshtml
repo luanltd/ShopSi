@@ -1,0 +1,24 @@
+﻿@model List<ShopSi.Models.CartItem>
+ @{
+     decimal total = 0;
+     int quantity = 0;
+}
+
+ @foreach (var item in Model)
+ {
+     quantity += item.Quantity;
+     total += item.Product.Price.GetValueOrDefault(0) * item.Quantity;
+
+ }
+
+
+    
+        <h5 style="color:white"> <img src="/assets/client/images/bag.png" alt="" />
+            <a style="color:white" href="/gio-hang">
+                Giỏ hàng:
+                @total đ (@quantity)
+            </a>
+         </h5>      
+   
+    
+    <div class="clearfix"> </div>

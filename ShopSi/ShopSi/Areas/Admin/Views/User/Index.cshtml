@@ -1,0 +1,86 @@
+﻿@model PagedList.IPagedList<Models.EF.User>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{ <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/">Quản lý thành viên</a>
+        </li>
+        <li class="breadcrumb-item active">Danh sách thành viên</li>
+    </ol>}
+
+@section jsFooter{
+    
+<script src="/assets/admin/js/controller/userController.js"></script>
+    }
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Danh sách thành viên
+    </div>
+
+    @using (Html.BeginForm("Index","User",FormMethod.Post))
+    {
+        <div>
+            
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <input type="text" value="@ViewBag.search" name="searching"/>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" name="btnsearch" class="btn btn-success">Tìm kiếm</button>
+                </div>
+            </div>
+
+        </div>
+    }
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    
+                    <tr>
+                        <th>Họ tên</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Trạng thái</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+      
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.ID">
+                            <td>@item.Name</td>
+                            <td>@item.Address</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Email</td>
+                            <td>@item.Status</td>
+                            <td><a href="/Admin/User/Edit/@item.ID">Sửa</a>|
+                            
+                           @*@Ajax.ActionLink("Xóa","Delete",new { @id=item.ID},new AjaxOptions {
+                          Confirm="Bạn có muốn xóa bản ghi này không",
+                          OnComplete="$('#row_"+@item.ID+"').Remove()",
+                          HttpMethod="Delete"*@
+
+                          @*Gọi bằng Ajax*@
+                            <a href="#" data-id="@item.ID" class="xoa">Xóa</a>
+
+                      
+                        </tr>
+                    }
+                   
+                    
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+  
+</div>
+

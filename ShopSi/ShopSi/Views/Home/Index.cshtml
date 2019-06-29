@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var newProduct = (List<Models.EF.Product>)ViewBag.NewProduct;
+    var featureProduct = (List<Models.EF.Product>)ViewBag.FeatureProduct;
+}
+
+<div class="banner">
+    <div class="container">
+        <div class="banner-bottom">
+            <div class="banner-bottom-left">
+                <h2>B<br>U<br>Y</h2>
+            </div>
+            <div class="banner-bottom-right">       
+                     
+                            <div class="banner-info">
+                                <div class="shop">
+                                    <h3>Shop Si</h3>
+                                    <br />
+                                    <a href="#">SHOP COLLECTION NOW</a>
+                                </div>       
+                            </div>                   
+                       
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        
+    </div>
+</div>
+<!-- content-section-starts-here -->
+<div class="container">
+    <div class="main-content">
+        <div class="online-strip">
+            <div class="col-md-4 follow-us">
+                <h3>follow us : <a class="twitter" href="#"></a><a class="facebook" href="https://www.facebook.com/luanspk"></a></h3>
+            </div>
+            <div class="col-md-4 shipping-grid">
+                <div class="shipping">
+                    <img src="/assets/client/images/shipping.png" alt="" />
+                </div>
+                <div class="shipping-text">
+                    <h3>Miễn phí Ship</h3>
+                    <p>Hóa đơn trên 300 ngàn</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-4 online-order">
+                <p>Đặt hàng online</p>
+                <h3>Tel:0896-49-50-86</h3>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="products-grid">
+            <header>
+                <h3 class="head text-center">Sản phẩm mới nhất</h3>
+            </header>
+            @foreach (var item in newProduct)
+            {
+                <div class="col-md-4 product simpleCart_shelfItem text-center">
+                    <a href="/chi-tiet/@item.MetaTitle-@item.ID "><img src="@item.Image" alt="" /></a>
+                    <div class="mask">
+                        <a href="/chi-tiet/@item.MetaTitle-@item.ID">Xem chi tiết</a>
+                    </div>
+                    <a class="product_name" href="/chi-tiet/@item.MetaTitle-@item.ID">@item.Name</a>
+                    <p><a class="item_add" href="/them-gio-hang?productID=@item.ID&quantity=1"><i></i> <span class="item_price">@item.Price</span></a></p>
+                </div>
+               
+            }     
+            <div class="clearfix"></div>    
+           
+        </div>
+
+        <div class="products-grid">
+            <header>
+                <h3 class="head text-center">Sản phẩm nổi bật</h3>
+            </header>
+            @foreach (var item in featureProduct)
+            {
+                <div class="col-md-4 product simpleCart_shelfItem text-center">
+                    <a href="/chi-tiet/@item.MetaTitle-@item.ID"><img src="@item.Image" alt="" /></a>
+                    <div class="mask">
+                        <a href="/chi-tiet/@item.MetaTitle-@item.ID">Xem chi tiết</a>
+                    </div>
+                    <a class="product_name" href="/chi-tiet/@item.MetaTitle-@item.ID">@item.Name</a>
+                    <p><a class="item_add" href="/them-gio-hang?productID=@item.ID&quantity=1"><i></i> <span class="item_price">@item.Price</span></a></p>
+                </div>
+
+            }
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+</div>
+

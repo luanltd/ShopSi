@@ -1,0 +1,83 @@
+﻿@model ShopSi.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="registration-form">
+    <div class="container">
+        <div class="dreamcrub">
+            <ul class="breadcrumbs">
+                <li class="home">
+                    <a href="/" title="Go to Home Page">Home</a>&nbsp;
+                    <span>&gt;</span>
+                </li>
+                <li class="women">
+                   Đăng ký
+                </li>
+            </ul>
+            <ul class="previous">
+                <li><a href="/">Back to Previous Page</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <h2>Đăng ký</h2>
+        <div class="registration-grids">
+            <div class="reg-form">
+                <div class="reg">
+                    <p>Chào mừng bạn, vui lòng nhập các thông tin để tiếp tục.</p>
+                    <p>Nếu bạn đã đăng ký với chúng tôi thì vui lòng <a href="/dang-nhap">click here</a></p>
+                    @using (Html.BeginForm("Register", "User", FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        <ul>
+                            <li class="text-info">Tài khoản: </li>
+                            <li>@Html.TextBoxFor(model=>model.UserName)</li>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Mật khẩu: </li>
+                            <li>@Html.PasswordFor(model => model.Password)</li>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Họ tên: </li>
+                            <li>@Html.TextBoxFor(model => model.Name)</li>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Email: </li>
+                            <li>@Html.TextBoxFor(model => model.Email)</li>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Điện thoại: </li>
+                            <li>@Html.TextBoxFor(model => model.Phone)</li>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Địa chỉ:</li>
+                            <li>@Html.TextBoxFor(model => model.Address)</li>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Trạng thái:</li>
+                            <li>@Html.CheckBoxFor(model => model.Status)</li>
+                        </ul>
+                        <button type="submit" class="btn btn-success">Đăng ký</button>
+                        
+                      
+                    }
+                       
+              
+                </div>
+            </div>
+            <div class="reg-right">
+                <h3>Tài khoản hoàn toàn miễn phí</h3>
+                <div class="strip"></div>
+                <p>
+                    Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
+                    libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.
+                </p>
+                <h3 class="lorem">Lorem ipsum dolor.</h3>
+                <div class="strip"></div>
+                <p>Tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
