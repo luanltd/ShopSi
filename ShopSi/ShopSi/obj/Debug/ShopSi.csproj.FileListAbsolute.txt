@@ -179,3 +179,5 @@ E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Microsoft.Owin.Security.Microso
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\obj\Debug\ShopSi.csprojResolveAssemblyReference.cache
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\obj\Debug\ShopSi.dll
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\obj\Debug\ShopSi.pdb
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Facebook.dll
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Facebook.xml

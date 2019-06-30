@@ -43,9 +43,11 @@
                                 <label for="inputPassword">Mật khẩu</label>
                                 @Html.PasswordFor(Model => Model.Password, new { @class = "form-control", @autofocus = "autofocus" })
                           
-                        </div>
-                        <a class="forgot" href="#">Forgot Your Password?</a>
+                        </div>                        
                         <button type="submit" class="btn btn-success">Đăng nhập</button>
+                        <a class="btn btn-facebook" href="/User/LoginFacebook">
+                            <i class="fa fa-facebook"></i>
+                         Đăng nhập bằng Facebook</a>
                     }
                       
                    

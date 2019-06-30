@@ -39,7 +39,7 @@
         [Display(Name = "Quận/Huyện")]
         public int? DistrictID { get; set; }
 
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         [StringLength(50)]
         public string CreateBy { get; set; }

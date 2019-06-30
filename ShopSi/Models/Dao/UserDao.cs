@@ -73,7 +73,7 @@ namespace Models.Dao
             IEnumerable<User> model = db.Users;
             if (!string.IsNullOrEmpty(searching))
             {
-                model = model.Where(x => x.Name.Contains(searching)||x.Email.Contains(searching));
+                model = model.Where(x => x.Name.Contains(searching)||x.UserName.Contains(searching));
             }
             return model = model.OrderByDescending(x => x.ID).ToPagedList(page,pageSize);
            // return model;
@@ -116,6 +116,22 @@ namespace Models.Dao
             db.Users.Remove(model);
             db.SaveChanges();
             return true;
+        }
+
+        public long InsertForFacebook(User model)
+        {
+            var user = db.Users.SingleOrDefault(x => x.UserName == model.UserName);
+            if (user == null)
+            {
+                db.Users.Add(model);
+                db.SaveChanges();
+                return model.ID;
+            }
+            else
+            {
+                return user.ID;
+            }
+
         }
     }
 }

@@ -48,6 +48,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thu vien\ckfinder_aspnet_2.6.2\ckfinder\bin\Release\CKFinder.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.10-beta\lib\net45\Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -893,6 +897,7 @@
     <Content Include="assets\admin\js\plusgin\ckfinder\_samples\skin_v1.html" />
     <Content Include="assets\admin\js\plusgin\ckfinder\_samples\standalone.html" />
     <Content Include="assets\admin\js\plusgin\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="assets\client\css\bootstrap-social.css" />
     <Content Include="assets\client\css\font-awesome.min.css" />
     <Content Include="assets\client\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\client\js\bootstrap-3.1.1.min.js" />
@@ -946,6 +951,8 @@
     <Content Include="assets\admin\js\plusgin\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="assets\admin\js\plusgin\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\Product\SuccessAdmin.cshtml" />
+    <Content Include="assets\client\less\bootstrap-social.less" />
+    <Content Include="assets\client\scss\bootstrap-social.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -997,8 +1004,6 @@
     <Folder Include="assets\admin\scss\" />
     <Folder Include="assets\admin\vendor\" />
     <Folder Include="assets\client\images\" />
-    <Folder Include="assets\client\less\" />
-    <Folder Include="assets\client\scss\" />
     <Folder Include="Views\ProductCategory\" />
   </ItemGroup>
   <ItemGroup>
