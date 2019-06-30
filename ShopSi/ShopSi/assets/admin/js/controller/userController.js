@@ -6,7 +6,7 @@
         $(".xoa").off('click').on('click', function () {
             var id=$(this).data('id');
             $.ajax({
-                url: "/User/Delete",
+                url: "Admin/User/Delete",
                 data: { id: id },
                 type: "POST",
                 dataType:"json",

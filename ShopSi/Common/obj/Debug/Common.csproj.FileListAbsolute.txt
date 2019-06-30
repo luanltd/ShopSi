@@ -3,3 +3,8 @@ E:\HOC LAP TRINH\MVC\ShopSi\Common\bin\Debug\Common.pdb
 E:\HOC LAP TRINH\MVC\ShopSi\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 E:\HOC LAP TRINH\MVC\ShopSi\Common\obj\Debug\Common.dll
 E:\HOC LAP TRINH\MVC\ShopSi\Common\obj\Debug\Common.pdb
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\bin\Debug\Common.dll
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\bin\Debug\Common.pdb
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\obj\Debug\Common.dll
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\obj\Debug\Common.pdb

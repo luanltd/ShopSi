@@ -18,13 +18,14 @@
     loadProvince: function () {
       
         $.ajax({
-            url: "/User/LoadProvince",
+            url: "/Admin/User/LoadProvince",
             type: "POST",
             dataType: "json",
             success: function (res) {
                 if (res.status) {
                     var data = res.data;
-                     var html = '<option value="">--Chọn tỉnh thành--</option>';
+                 
+                    var html = '<option value="">--Chọn tỉnh thành--</option>';
                     $.each(data, function (i, item) {
                         html += '<option value="' + item.ID + '">' + item.Name + '</option>'
                     });
@@ -39,7 +40,7 @@
     loadDistrict: function (id) {
        
         $.ajax({
-            url: "/User/LoadDistrict",
+            url: "/Admin/User/LoadDistrict",
             type: "POST",
             data: { provinceID: id },
             dataType: "json",
