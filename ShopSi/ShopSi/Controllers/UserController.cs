@@ -53,7 +53,7 @@ namespace ShopSi.Controllers
     
 
 
-    public ActionResult FacebookCallback(string code)
+        public ActionResult FacebookCallback(string code)
     {
         var fb = new FacebookClient();
         dynamic result = fb.Post("oauth/access_token", new
@@ -96,7 +96,7 @@ namespace ShopSi.Controllers
         return Redirect("/");
     }
 
-    public ActionResult Logout()
+        public ActionResult Logout()
         {
             Session[CommonConstant.user_session] = null;
             return Redirect("/");

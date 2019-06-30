@@ -2,14 +2,14 @@
 @{
     ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var product=(List<Models.EF.Product>)ViewBag.ProdcutCateId;
+    var product = (List<Models.EF.Product>)ViewBag.ProdcutCateId;
     var featureProduct = (List<Models.EF.Product>)ViewBag.FeatureProduct;
-    var proType =(List<Models.EF.ProductType>)ViewBag.ProType;
+    var proType = (List<Models.EF.ProductType>)ViewBag.ProType;
 }
 @section jsFooter{
     <script src="/assets/client/js/cbpViewModeSwitch.js" type="text/javascript"></script>
     <script src="/assets/client/js/classie.js" type="text/javascript"></script>
-            <script type="text/javascript">
+    <script type="text/javascript">
 					                 $(window).load(function() {
 						                $("#flexiselDemo3").flexisel({
                               visibleItems: 4,
@@ -38,9 +38,9 @@
                               });
 
                           });
-            </script>   
+    </script>
     <script type="text/javascript" src="/assets/client/js/jquery.flexisel.js"></script>
-    }
+}
 <!-- content-section-starts -->
 <div class="container">
     <div class="products-page">
@@ -58,28 +58,28 @@
                 <p class="back"><a href="/">Back to Previous</a></p>
                 <div class="clearfix"></div>
             </div>
-           <hr />
+            <hr />
             <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
                 <div class="cbp-vm-options">
                     <a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid" title="grid">Grid View</a>
                     <a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list" title="list">List View</a>
                 </div>
                 @*<div class="pages">
-                <div class="limiter visible-desktop">
-                    <label>Show</label>
-                    <select>
-                        <option value="" selected="selected">
-                            9
-                        </option>
-                        <option value="">
-                            15
-                        </option>
-                        <option value="">
-                            30
-                        </option>
-                    </select> per page
-                </div>
-            </div>*@
+                        <div class="limiter visible-desktop">
+                            <label>Show</label>
+                            <select>
+                                <option value="" selected="selected">
+                                    9
+                                </option>
+                                <option value="">
+                                    15
+                                </option>
+                                <option value="">
+                                    30
+                                </option>
+                            </select> per page
+                        </div>
+                    </div>*@
                 <div class="clearfix"></div>
                 <ul>
                     @foreach (var item in product)
@@ -114,81 +114,81 @@
                     }
                 </ul>
             </div>
-                @*//Phan trang*@
+            @*//Phan trang*@
 
-                <!--Phân trang-->
-                @if (ViewBag.TotalPage > 1)
+            <!--Phân trang-->
+            @if (ViewBag.TotalPage > 1)
+            {
+                var pageDisplay = (int)ViewBag.MaxPage;
+                int totalPage = (int)ViewBag.TotalPage;
+                int currentPage = (int)ViewBag.Page;
+
+                // Create numeric links
+                var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+                var title = "ao/";
+
+                if (Model.TypeID == 1)
                 {
-                    var pageDisplay = (int)ViewBag.MaxPage;
-                    int totalPage = (int)ViewBag.TotalPage;
-                    int currentPage = (int)ViewBag.Page;
+                    title = "ao/";
+                }
+                else if (Model.TypeID == 2)
+                {
+                    title = "quan/";
+                }
+                else
+                {
+                    title = "phu-kien/";
+                }
 
-                    // Create numeric links
-                    var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
-                    var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
-                    var title = "ao/";
-
-                    if (Model.TypeID == 1)
-                    {
-                        title = "ao/";
-                    }
-                    else if (Model.TypeID == 2)
-                    {
-                        title = "quan/";
-                    }
-                    else
-                    {
-                        title = "phu-kien/";
-                    }
-
-                    var link = "/san-pham/"+title+ Model.MetaTitle + "-" + Model.ID;
-                    <nav>
-                        <ul class="pagination">
-                            @if (currentPage > ViewBag.First)
-                             {
-                                <li>
-                                    <a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a>
-                                </li>
+                var link = "/san-pham/" + title + Model.MetaTitle + "-" + Model.ID;
+                <nav>
+                    <ul class="pagination">
+                        @if (currentPage > ViewBag.First)
+                        {
+                            <li>
+                                <a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a>
+                            </li>
                                 <li>
                                     <a href="@link?page=@ViewBag.Prev" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
                                 </li>
 
-                             }
-                            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                        }
+                        @for (int i = startPageIndex; i <= endPageIndex; i++)
+                        {
+                            if (currentPage == i)
                             {
-                                if (currentPage == i)
-                                {
 
-                                    <li> <a href="@link?page=@i" class="active" title="Trang @i">@i</a></li>
-                                }
-                                else
-                                {
-                                    <li><a href="@link?page=@i" title="Trang @i" class="pos">@i</a></li>
-                                }
+                                <li> <a href="@link?page=@i" class="active" title="Trang @i">@i</a></li>
                             }
-                            @if (currentPage < totalPage)
+                            else
                             {
-                                <li><a href="@link?page=@ViewBag.Next" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
+                                <li><a href="@link?page=@i" title="Trang @i" class="pos">@i</a></li>
+                            }
+                        }
+                        @if (currentPage < totalPage)
+                        {
+                            <li><a href="@link?page=@ViewBag.Next" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
                                 <li> <a href="@link?page=@ViewBag.Last" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
-                            }
+                        }
 
-                        </ul>
-                    </nav>
+                    </ul>
+                </nav>
 
-                }
-                else
-                {
-                    <span>Không có bản ghi nào</span>
-                }
-    
-            
+            }
+            else
+            {
+                <span>Không có bản ghi nào</span>
+            }
+
+
 
 
             <script src="/assets/client/js/cbpViewModeSwitch.js" type="text/javascript"></script>
             <script src="/assets/client/js/classie.js" type="text/javascript"></script>
-	    </div>
+        </div>
         <div class="clearfix"></div>
-	</div>
+    </div>
     <div class="clearfix"></div>
 </div>
 <!-- content-section-ends -->
@@ -196,19 +196,19 @@
     <div class="container">
         <h3 class="like text-center">Sản phẩm nổi bật</h3>
         <ul id="flexiselDemo3">
-          @foreach (var item in featureProduct)
-          {
-            <li>
-                <a href="/chi-tiet/@item.MetaTitle-@item.ID"><img src="@item.Image" class="img-responsive" /></a>
-                <div class="product liked-product simpleCart_shelfItem">
-                    <a class="like_name" href="/chi-tiet/@item.MetaTitle-@item.ID">@item.Name</a>
-                    <p><a class="item_add" href="#"><i></i> <span class="item_price">@item.Price</span></a></p>
-                </div>
-            </li>
-          }             
-         
+            @foreach (var item in featureProduct)
+            {
+                <li>
+                    <a href="/chi-tiet/@item.MetaTitle-@item.ID"><img src="@item.Image" class="img-responsive" /></a>
+                    <div class="product liked-product simpleCart_shelfItem">
+                        <a class="like_name" href="/chi-tiet/@item.MetaTitle-@item.ID">@item.Name</a>
+                        <p><a class="item_add" href="#"><i></i> <span class="item_price">@item.Price</span></a></p>
+                    </div>
+                </li>
+            }
+
         </ul>
-   
+
     </div>
 </div>
 <!-- content-section-ends-here -->

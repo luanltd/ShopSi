@@ -48,7 +48,7 @@ namespace ShopSi.Controllers
         {
             var model = new ProductCategoryDao().GetProductCategory(cateid);
             int totalRecode = 0;
-            ViewBag.ProdcutCateId = new ProductCategoryDao().GetProductCateId(model.ID,ref totalRecode, page,pageSize);
+            ViewBag.ProdcutCateId = new ProductCategoryDao().GetProductCateId(cateid,ref totalRecode, page,pageSize);
             ViewBag.Total = totalRecode;
             ViewBag.Page = page;
             int maxPage = 5;
