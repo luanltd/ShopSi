@@ -50,7 +50,7 @@ namespace ShopSi.Controllers
             });
             return Redirect(loginUrl.AbsoluteUri);
         }
-    }
+    
 
 
     public ActionResult FacebookCallback(string code)
@@ -63,6 +63,7 @@ namespace ShopSi.Controllers
             redirect_uri = RedirectUri.AbsoluteUri,
             code = code
         });
+
 
 
         var accessToken = result.access_token;
@@ -86,10 +87,10 @@ namespace ShopSi.Controllers
             var resultInsert = new UserDao().InsertForFacebook(user);
             if (resultInsert > 0)
             {
-                var userSession = new SessionLogin();
+                var userSession = new CommonLogin();
                 userSession.UserName = user.UserName;
-                userSession.UserID = user.ID;
-                Session.Add(Common.CommonConstant.USER_SESSION, userSession);
+                userSession.ID = user.ID;
+                Session.Add(CommonConstant.user_session, userSession);
             }
         }
         return Redirect("/");
