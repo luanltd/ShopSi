@@ -213,6 +213,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
@@ -250,6 +251,7 @@
     </Content>
     <Content Include="assets\admin\js\bootstrap.js" />
     <Content Include="assets\admin\js\bootstrap.min.js" />
+    <Content Include="assets\admin\js\CK\CKFinder.js" />
     <Content Include="assets\admin\js\controller\createController.js" />
     <Content Include="assets\admin\js\controller\userController.js" />
     <Content Include="assets\admin\js\jquery-3.4.1.min.js" />
@@ -953,6 +955,9 @@
     <Content Include="Areas\Admin\Views\Product\SuccessAdmin.cshtml" />
     <Content Include="assets\client\less\bootstrap-social.less" />
     <Content Include="assets\client\scss\bootstrap-social.scss" />
+    <Content Include="Areas\Admin\Views\Content\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

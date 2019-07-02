@@ -26,3 +26,5 @@ E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Models\bin\Debug\PagedList.Mvc.xml
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Models\obj\Debug\Models.dll
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Models\obj\Debug\Models.pdb
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Models\bin\Debug\Common.dll
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Models\bin\Debug\Common.pdb
