@@ -87,8 +87,36 @@ namespace ShopSi
                namespaces: new string[] { "ShopSi.Controllers" }
 
            );
-         
 
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+               name: "News",
+               url: "tin-tuc",
+               defaults: new { controller = "Content", action = "Index", id = UrlParameter.Optional },
+               namespaces: new string[] { "ShopSi.Controllers" }
+
+           );
+
+
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+               name: "News Detail",
+               url: "tin-tuc/{metatitle}-{id}",
+               defaults: new { controller = "Content", action = "Detail", id = UrlParameter.Optional },
+               namespaces: new string[] { "ShopSi.Controllers" }
+
+           );
+
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+               name: "Tags",
+               url: "tag/{tagid}",
+               defaults: new { controller = "Content", action = "Tag", id = UrlParameter.Optional },
+               namespaces: new string[] { "ShopSi.Controllers" }
+
+           );
+
+           
 
             routes.MapRoute(
                 name: "Default",

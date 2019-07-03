@@ -12,7 +12,7 @@ namespace ShopSi.Areas.Admin.Controllers
     public class ContentController : BaseController
     {
         // GET: Admin/Content
-        public ActionResult Index(string searching, int page = 1, int pageSize = 3)
+        public ActionResult Index(string searching, int page = 1, int pageSize = 10)
         {
             var model = new ContentDao().GetAllContent(searching, page, pageSize);
             ViewBag.search = searching;

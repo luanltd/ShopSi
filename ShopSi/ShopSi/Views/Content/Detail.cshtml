@@ -1,0 +1,46 @@
+﻿@model Models.EF.Content
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="container">
+        <div class="products-page">
+
+            <div class="dreamcrub">
+                <ul class="breadcrumbs">
+                    <li class="home">
+                        <a href="/" title="Go to Home Page">Tin tức</a>&nbsp;
+                        <span>&gt;</span>
+                    </li>
+                    <li class="women">
+                      @Model.Name
+                    </li>
+                </ul>
+                <ul class="previous">
+                    <li><a href="/">Back to Previous Page</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+              <div class="content">
+                  @*<div class="content-top">
+                      <div class="heading">
+                          <h4>@Model.Name</h4>
+                      </div>
+                  </div>*@
+                <div class="section-group">
+                    @Html.Raw(Model.Detail)
+                    <ul>
+                        @{
+                            var tags = (List<Models.EF.Tag>)ViewBag.Tags;
+                            foreach (var tag in tags)
+                            {
+                                <li><a href="/tag/@tag.ID">@tag.Name</a></li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

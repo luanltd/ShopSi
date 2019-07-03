@@ -221,6 +221,7 @@
     <Compile Include="Areas\Admin\Models\District.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\Province.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\CommonLogin.cs" />
@@ -1001,6 +1002,9 @@
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Success.cshtml" />
     <Content Include="Views\Home\Header.cshtml" />
+    <Content Include="Views\Content\Index.cshtml" />
+    <Content Include="Views\Content\Detail.cshtml" />
+    <Content Include="Views\Content\Tag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

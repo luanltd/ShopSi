@@ -56,15 +56,9 @@ namespace Models.Dao
         public long Edit(Content content)
         {
             //xử lý alias
-
-
-            if (string.IsNullOrEmpty(content.MetaTitle))
-            {
-                content.MetaTitle = StringHelper.ToUnsignString(content.Name);
-
-            }
             var model = db.Contents.Find(content.ID);
             model.Image = content.Image;
+            model.MetaTitle = content.MetaTitle;
             model.CategoryID = content.CategoryID;
             model.CreatedBy = content.CreatedBy;
             model.Description = content.Description;
@@ -75,12 +69,19 @@ namespace Models.Dao
             model.ViewCount = content.ViewCount;
             model.Tags = content.Tags;
             model.CreatedDate = DateTime.Now;
+
+            if (string.IsNullOrEmpty(model.MetaTitle))
+            {
+                model.MetaTitle = StringHelper.ToUnsignString(model.Name);
+
+            }
+         
             db.SaveChanges();
 
             //xử lý tag
-            if (!string.IsNullOrEmpty(content.Tags))
+            if (!string.IsNullOrEmpty(model.Tags))
             {
-                this.RemoveAllContentTag(content.ID);
+                this.RemoveAllContentTag(model.ID);
                 string[] tags = content.Tags.Split(',');
                 foreach (var tag in tags)
                 {
@@ -93,11 +94,11 @@ namespace Models.Dao
                         this.InsertTag(tagId, tag);
                     }
                     //insert contenttag in table
-                    this.InsertContentTag(content.ID, tagId);
+                    this.InsertContentTag(model.ID, tagId);
                 }
             }
            
-            return content.ID;
+            return model.ID;
         }
 
         public void RemoveAllContentTag(long contentid)
@@ -129,7 +130,6 @@ namespace Models.Dao
             return db.Tags.Count(x => x.ID == id) > 0;
         }
 
-
         public IEnumerable<Content> GetAllContent(string searching, int page, int pageSize)
         {
             IEnumerable<Content> model = db.Contents;
@@ -141,5 +141,69 @@ namespace Models.Dao
             // return model;
         }
 
+        //Phan trang danh cho client
+        public IEnumerable<Content> GetAllContent(ref int totalRecode, int page, int pageSize)
+        {
+            IEnumerable<Content> model = db.Contents;
+            totalRecode = model.Count();
+            return model = model.OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            // return model;
+        }
+
+
+        public IEnumerable<Content> ListAllByTag(ref int totalRecode,string tag,int page, int pageSize)
+        {
+            var model = (from a in db.Contents
+                         join b in db.ContentTags
+                         on a.ID equals b.ContentID
+                         where b.TagID == tag
+                         select new
+                         {
+                             Name = a.Name,
+                             MetaTitle = a.MetaTitle,
+                             Image = a.Image,
+                             Description = a.Description,
+                             CreatedDate = a.CreatedDate,
+                             CreatedBy = a.CreatedBy,
+                             ID = a.ID
+                         }).AsEnumerable().Select(x => new Content()
+                         {
+                             Name = x.Name,
+                             MetaTitle = x.MetaTitle,
+                             Image = x.Image,
+                             Description = x.Description,
+                             CreatedDate = x.CreatedDate,
+                             CreatedBy = x.CreatedBy,
+                             ID = x.ID
+                         });
+            totalRecode = model.Count();
+            return model = model.OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            // return model;
+        }
+
+        public Tag GetTag(string id)
+        {
+            return db.Tags.Find(id);
+        }
+
+        public List<Tag> ListTag(long contentid)
+        {
+            var model = (from a in db.Tags
+                         join b in db.ContentTags
+                         on a.ID equals b.TagID
+                         where b.ContentID == contentid
+                         select new
+                         {
+                             ID = b.TagID,
+                             Name = a.Name
+                         }).AsEnumerable().Select(x => new Tag()
+                         {
+                             ID=x.ID,
+                             Name=x.Name
+
+                         });
+
+            return model.ToList();
+        }
     }
 }
