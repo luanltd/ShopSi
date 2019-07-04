@@ -11,9 +11,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link href="/assets/client/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link href="/assets/client/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/assets/client/css/bootstrap-social.css" rel="stylesheet" />
-  
+
+    <link href="/assets/client/css/jquery-ui.css" rel="stylesheet" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/assets/client/js/jquery.min.js"></script>
+    <script src="/assets/client/js/jquery-ui.js"></script>
     <!-- Custom Theme files -->
     <link href="/assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/assets/client/css/component.css" rel='stylesheet' type='text/css' />
@@ -67,12 +69,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <span class="icon-bar"></span>
                     </button>
                     <div class="logo">
-                        <h1><a href="/">  -Shop<span>Si</span></a></h1>
+                        <h1><a href="/">  -Shop<span>Si</span></a></h1>                      
                     </div>
                 </div>
-                <!--/.navbar-header-->
-
+               <!--/.navbar-header-->
+                <div class="navbar-header1">
+                    <form action="/tim-kiem" method="get">
+                        <input type="text" placeholder="Sản phẩm cần tìm" id="txtSearching" name="searching"/>
+                        <button type="submit" value=""><i class="glyphicon glyphicon-search"></i></button>
+                    </form>
+                </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    @*<form>
+
+                        <input type="text" value="Sản phẩm cầm tìm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Sản phẩm cần tìm';}" />
+                        <input type="submit" value="SEARCH" />
+
+                    </form>*@
                     <ul class="nav navbar-nav">
                         <li><a href="/">Trang chủ</a></li>
                         <li class="dropdown">
@@ -165,11 +178,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="news-letter">
         <div class="container">
             <div class="join">
-                <h6>JOIN OUR MAILING LIST</h6>
+                <h6>TÌM KIẾM SẢN PHẨM</h6>
                 <div class="sub-left-right">
                     <form>
-                        <input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" />
-                        <input type="submit" value="SUBSCRIBE" />
+
+                        <input type="text" value="Sản phẩm cầm tìm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Sản phẩm cần tìm';}" />
+                        <input type="submit" value="SEARCH" />
+
                     </form>
                 </div>
                 <div class="clearfix"> </div>
@@ -180,7 +195,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     @RenderPage("_Footer.cshtml")
     </div>
 
-
+    <script src="/assets/client/js/controller/baseController.js"></script>
     @RenderSection("jsFooter",required:false)
 </body>
 </html>

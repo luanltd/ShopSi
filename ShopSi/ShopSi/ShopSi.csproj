@@ -902,12 +902,15 @@
     <Content Include="assets\admin\js\plusgin\ckfinder\_samples\standalone_v1.html" />
     <Content Include="assets\client\css\bootstrap-social.css" />
     <Content Include="assets\client\css\font-awesome.min.css" />
+    <Content Include="assets\client\css\jquery-ui.css" />
     <Content Include="assets\client\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\client\js\bootstrap-3.1.1.min.js" />
     <Content Include="assets\client\js\cbpViewModeSwitch.js" />
     <Content Include="assets\client\js\classie.js" />
+    <Content Include="assets\client\js\controller\baseController.js" />
     <Content Include="assets\client\js\controller\cartController.js" />
     <Content Include="assets\client\js\imagezoom.js" />
+    <Content Include="assets\client\js\jquery-ui.js" />
     <Content Include="assets\client\js\jquery.flexisel.js" />
     <Content Include="assets\client\js\jquery.flexslider.js" />
     <Content Include="assets\client\js\jquery.min.js" />

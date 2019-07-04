@@ -116,7 +116,14 @@ namespace ShopSi
 
            );
 
-           
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+               name: "Search",
+               url: "tim-kiem",
+               defaults: new { controller = "Home", action = "Search", id = UrlParameter.Optional },
+               namespaces: new string[] { "ShopSi.Controllers" }
+
+           );
 
             routes.MapRoute(
                 name: "Default",

@@ -116,13 +116,14 @@ a.simpleCart_empty {
     display: block;
     text-align: center;
     float: left;
-    padding: 2px 0 0 4px;
+    padding: 
+         0 0 4px;
     height: 50px;
     vertical-align: middle;
     margin-right: 3px;
 }
 .banner-top {
-	padding-top: 25px;
+	padding-top: 10px;
     background-color: #f8f8f8;
 }
 .inner-head {
@@ -167,8 +168,14 @@ a.simpleCart_empty {
 }
 .navbar-header {
     float: left;
-    width: 35%;
+    width: 15%;
 }
+.navbar-header1 {
+    float: left;
+    width: 25%;
+    margin-top:15px;
+}
+
 ul.multi-column-dropdown h6 {
     font-size: 14px;
     font-weight: 600;
@@ -444,9 +451,9 @@ ul.multi-column-dropdown h6 {
 .online-strip {
 	border-top: 1px solid #C8C8C8;
 	border-bottom: 1px solid #C8C8C8;
-	padding: 20px 0;
+	padding: 15px 0;
 	text-align:center;
-	margin: 40px 0 30px;
+	margin: 20px 0 0px;
 }
 .shipping-grid {
 	border-left: 1px solid #C8C8C8;
@@ -474,7 +481,7 @@ ul.multi-column-dropdown h6 {
 	margin-top:0.4em;
 }
 .online-strip p {
-	font-size:0.95em;
+	font-size:1em;
 }
 a.twitter {
 	width: 25px;
@@ -502,11 +509,11 @@ h3.head.text-center {
 	    padding: 0;
 }
 .products-grid {
-    padding: 30px 0;
+    padding: 20px 0 20px;
 }
 .product {
 	position:relative;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 .product:hover .mask{
 	display:block;
@@ -523,7 +530,7 @@ h3.head.text-center {
 	text-decoration:none;
 }
 a.product_name {
-    margin: 15px 0;
+    margin: 15px 0 5px;
 }
 .product-left:hover .p-one{
 	border: 1px solid #8c2830;
@@ -553,11 +560,31 @@ a.product_name {
     padding: 6px 12px;
     text-decoration: none;
 }
+
+.mask p{
+	background: rgba(255, 255, 255, 0.74);
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 6px 12px;
+    text-decoration: none;
+}
 .product-left{
 	position:relative;
 	text-align:center;
 }
 .mask a:hover{
+	text-decoration:none;
+	background:#816263;
+	color:#fff;
+	transition: 0.7s all;
+	-webkit-transition: 0.7s all;
+	-o-transition: 0.7s all;
+	-moz-transition: 0.7s all;
+	-ms-transition: 0.7s all;
+}
+
+.mask p:hover{
 	text-decoration:none;
 	background:#816263;
 	color:#fff;
@@ -674,7 +701,7 @@ a.like_name {
 	background: url(../images/arrows.png) no-repeat -61px -7px;
 }
 .other-products {
-    padding: 60px 0;
+    padding: 30px 0;
 }
 .liked-product{
 	margin-top:0;
@@ -682,7 +709,7 @@ a.like_name {
 /*-- news-letter-starts-here --*/
 .news-letter {
     background-color: #F7F7F7;
-    padding: 35px 0;
+    padding: 20px 0;
 }
 .join h6 {
     font-size: 22px;
@@ -884,7 +911,7 @@ ul.tags_links li a:hover{
 	float:right;
 	background:rgba(245, 243, 243, 0.27);
 	min-height:800px;
-	padding:2em;
+	padding:1em;
 }
 ul.product-top-list{
 	padding:0;
@@ -1390,7 +1417,7 @@ p.title {
 	border-top: 10px solid #f8f8f8;
 }
 .products-page {
-	padding: 60px 0;
+	padding: 30px 0;
 }
 /*---- Best Buy Starts Here ---*/
 .mens-toolbar .sort {
@@ -1897,6 +1924,8 @@ div#myTabContent {
 .cart-item img {
 	width: 80%;
 }
+
+
 .close1, .close2,.close3 {
 	background: url('../images/close_1.png') no-repeat 0px 0px;
 	cursor: pointer;
@@ -2375,7 +2404,13 @@ p.right {
 	.mask a {
 		font-size: 14px;
 		padding: 5px 10px;
+
 	}
+    .mask p {
+		font-size: 14px;
+		padding: 5px 10px;
+	}
+
 	.join h6 {
 		font-size: 18px;
 	}
@@ -2553,7 +2588,7 @@ p.right {
 	.navbar-header {
 		float: none;
 	}
-	.navbar-collapse.collapse {
+	.navbar-navbar-header.collapse {
 		margin-top: 10px;
 	}
 	.banner-info h3 {
@@ -2734,7 +2769,7 @@ p.right {
 		font-size: 20px;
 	}
 	.banner-top {
-		padding-top: 20px;
+		padding-top: 10px;
 	}
 	.banner {
 		min-height: 227px;
@@ -2857,7 +2892,7 @@ p.right {
 	}
 	.logo a span {
 		font-size: 25px;
-		width: 40px;
+		width: 20px;
 		height: 40px;
 		padding: 2px 0 0 1px;
 		margin-top: 6px;

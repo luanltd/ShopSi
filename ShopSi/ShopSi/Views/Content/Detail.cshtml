@@ -31,15 +31,15 @@
                   </div>*@
                 <div class="section-group">
                     @Html.Raw(Model.Detail)
-                    <ul>
+                    <div>
                         @{
                             var tags = (List<Models.EF.Tag>)ViewBag.Tags;
                             foreach (var tag in tags)
                             {
-                                <li><a href="/tag/@tag.ID">@tag.Name</a></li>
+                                <span><a href="/tag/@tag.ID">@tag.Name</a></span>
                             }
                         }
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>

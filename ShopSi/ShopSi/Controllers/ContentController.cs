@@ -39,7 +39,7 @@ namespace ShopSi.Controllers
         public ActionResult Tag(string tagid,int page = 1, int pageSize = 10)
         {
             int totalRecode = 0;
-            var model = new ContentDao().ListAllByTag(ref totalRecode, tagid,page, pageSize);           
+            var model = new ContentDao().ListAllByTag(ref totalRecode,tagid,page, pageSize);           
             ViewBag.Total = totalRecode;
             ViewBag.Page = page;
             ViewBag.Tag = new ContentDao().GetTag(tagid);

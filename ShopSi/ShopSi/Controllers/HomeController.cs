@@ -78,5 +78,36 @@ namespace ShopSi.Controllers
         
             return PartialView(list);
         }
+
+        public JsonResult ListName(string q)
+        {
+            var data = new ProductDao().GetListName(q);
+            return Json(new
+            {
+                data=data,
+                status=true
+            },JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Search(string searching, int page = 1, int pageSize = 6)
+        {
+            var model = new ProductCategoryDao().GetProductCategory(cateid);
+            int totalRecode = 0;
+            ViewBag.ProdcutCateId = new ProductCategoryDao().GetProductCateId(cateid, ref totalRecode, page, pageSize);
+            ViewBag.Total = totalRecode;
+            ViewBag.Page = page;
+            int maxPage = 5;
+            int totalPage = 0;
+            totalPage = (int)Math.Ceiling((double)totalRecode / pageSize);
+            ViewBag.TotalPage = totalPage;
+            ViewBag.MaxPage = maxPage;
+            ViewBag.First = 1;
+            ViewBag.Last = totalPage;
+            ViewBag.Next = page + 1;
+            ViewBag.Prev = page - 1;
+            ViewBag.FeatureProduct = new ProductDao().GetListFeatureProduct(6);
+            ViewBag.ProType = new ProductTypeDao().GetProductType();
+            return View(model);
+        }
     }
 }

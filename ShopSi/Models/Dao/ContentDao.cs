@@ -153,7 +153,7 @@ namespace Models.Dao
 
         public IEnumerable<Content> ListAllByTag(ref int totalRecode,string tag,int page, int pageSize)
         {
-            var model = (from a in db.Contents
+            IEnumerable<Content> model = (from a in db.Contents
                          join b in db.ContentTags
                          on a.ID equals b.ContentID
                          where b.TagID == tag

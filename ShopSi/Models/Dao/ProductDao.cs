@@ -14,6 +14,16 @@ namespace Models.Dao
         {
             db = new ShopSiDbContext();
         }
+
+        public IEnumerable<Product> GetSearching(string search)
+        {
+            IEnumerable<Product> model = db.Products;
+            if (!string.IsNullOrEmpty(search))
+            {
+                model = model.Where(x => x.Name.Contains(search) || x.Description.Contains(search));
+            }
+            return model.OrderByDescending(x => x.CreatedDate);
+        }
         public List<Product> GetListNewProduct(int top)
         {
             var model = db.Products.OrderByDescending(x => x.CreatedDate).Take(top).ToList();
@@ -36,6 +46,11 @@ namespace Models.Dao
             db.Products.Add(model);
             db.SaveChanges();
             return model.ID;
+        }
+
+        public List<string> GetListName (string keyword)
+        {
+            return db.Products.Where(x => x.Name.Contains(keyword)).Select(x => x.Name).ToList();
         }
     }
 }
