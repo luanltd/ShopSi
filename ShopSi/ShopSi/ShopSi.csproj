@@ -901,8 +901,12 @@
     <Content Include="assets\admin\js\plusgin\ckfinder\_samples\standalone.html" />
     <Content Include="assets\admin\js\plusgin\ckfinder\_samples\standalone_v1.html" />
     <Content Include="assets\client\css\bootstrap-social.css" />
+    <Content Include="assets\client\css\bootstrap.css" />
+    <Content Include="assets\client\css\component.css" />
+    <Content Include="assets\client\css\flexslider.css" />
     <Content Include="assets\client\css\font-awesome.min.css" />
     <Content Include="assets\client\css\jquery-ui.css" />
+    <Content Include="assets\client\css\style.css" />
     <Content Include="assets\client\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\client\js\bootstrap-3.1.1.min.js" />
     <Content Include="assets\client\js\cbpViewModeSwitch.js" />
@@ -988,8 +992,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\TopMenu.cshtml" />
     <Content Include="Views\Shared\ProductCategory.cshtml" />
@@ -1009,6 +1011,7 @@
     <Content Include="Views\Content\Detail.cshtml" />
     <Content Include="Views\Content\Tag.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Content\Thuonghieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

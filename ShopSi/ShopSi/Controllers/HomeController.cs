@@ -4,6 +4,7 @@ using ShopSi.Common;
 using ShopSi.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,6 +18,9 @@ namespace ShopSi.Controllers
             var dao = new ProductDao();
             ViewBag.NewProduct = dao.GetListNewProduct(6);
             ViewBag.FeatureProduct = dao.GetListFeatureProduct(3);
+            ViewBag.Title = ConfigurationManager.AppSettings["HomeTitle"];
+            ViewBag.Keywords = ConfigurationManager.AppSettings["HomeKeyword"];
+            ViewBag.Descriptions = ConfigurationManager.AppSettings["HomeDescriptions"];
             return View();
         }
         [ChildActionOnly]

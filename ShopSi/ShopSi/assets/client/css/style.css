@@ -32,6 +32,31 @@ input[type="button"],input[type="submit"]{
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
 }
+
+/*Footer*/
+.thuonghieu{
+    width:1140px;
+    margin:auto;
+    background-color: #f8f8f8;
+}
+.thuonghieu h3{
+     text-align: center;
+     color:#816263;
+     font-size: 28px;
+}
+.thuonghieu p{
+    color:#816263;
+    font-size:18px;
+    font-family:'Times New Roman';
+    padding:0 20px 0 20px;
+}
+
+.thuonghieu ul{
+    color:#816263;
+    font-size:18px;
+    font-family:'Times New Roman';
+    padding:0 20px 0 50px;
+}
 h1,h2,h3,h4,h5,h6{
 	margin:0;	
 	font-family: 'PlayfairDisplay-Regular';

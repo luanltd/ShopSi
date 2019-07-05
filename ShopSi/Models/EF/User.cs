@@ -13,14 +13,17 @@
 
         [StringLength(50)]
         [Display(Name ="Tài khoản")]
+        [Required(ErrorMessage ="Mời bạn nhập tài khoản")]
         public string UserName { get; set; }
 
         [StringLength(32)]
         [Display(Name = "Mật khẩu")]
+        //[Required(ErrorMessage ="Mời bạn nhập vào mật khẩu")]
         public string Password { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Họ tên")]
+        [Required(ErrorMessage ="Mời bạn nhập vào họ tên")]
         public string Name { get; set; }
 
         [StringLength(50)]
@@ -28,6 +31,8 @@
         public string Address { get; set; }
 
         [StringLength(50)]
+        [Required(ErrorMessage ="Mời bạn nhập vào Email")]
+        [EmailAddress]
         public string Email { get; set; }
 
         [StringLength(50)]

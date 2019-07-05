@@ -1,6 +1,6 @@
 ﻿@model Models.EF.Product__Category
 @{
-    ViewBag.Title = "Category";
+    ViewBag.Title =Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var product = (List<Models.EF.Product>)ViewBag.ProdcutCateId;
     var featureProduct = (List<Models.EF.Product>)ViewBag.FeatureProduct;

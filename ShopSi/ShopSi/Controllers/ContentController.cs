@@ -54,5 +54,11 @@ namespace ShopSi.Controllers
             ViewBag.Prev = page - 1;
             return View(model);
         }
+
+        //thuong hieu
+        public ActionResult Thuonghieu()
+        {
+            return View();
+        }
     }
 }

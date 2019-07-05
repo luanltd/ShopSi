@@ -7,19 +7,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Shop Si</title>
+    <title>@ViewBag.Title</title>
+
+    <meta name="keywords" content="@ViewBag.Keywords">
+    <meta name="description" content="@ViewBag.Descriptions"/>
+    <meta name="keywords" content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+     Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
+
     <link href="/assets/client/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link href="/assets/client/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/assets/client/css/bootstrap-social.css" rel="stylesheet" />
-
     <link href="/assets/client/css/jquery-ui.css" rel="stylesheet" />
+
+    <link href="/assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/assets/client/css/component.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="/assets/client/css/flexslider.css" type="text/css" media="screen" />
+    <link href="/assets/client/css/font-awesome.min.css" rel="stylesheet" />
+    @*@Styles.Render("~/bundles/cssclient")*@
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/assets/client/js/jquery.min.js"></script>
     <script src="/assets/client/js/jquery-ui.js"></script>
-    <!-- Custom Theme files -->
-    <link href="/assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/assets/client/css/component.css" rel='stylesheet' type='text/css' />
-    <!-- Custom Theme files -->
+    <script type="text/javascript" src="/assets/client/js/bootstrap-3.1.1.min.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- cart -->
+    <script src="/assets/client/js/simpleCart.min.js"> </script>
+
+   @* @Scripts.Render("~/bundles/jsclient")*@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
@@ -28,13 +43,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--webfont-->
     <!-- for bootstrap working -->
-    <script type="text/javascript" src="/assets/client/js/bootstrap-3.1.1.min.js"></script>
-    <!-- //for bootstrap working -->
+    
     <!-- cart -->
-    <script src="/assets/client/js/simpleCart.min.js"> </script>
-    <!-- cart -->
-    <link rel="stylesheet" href="/assets/client/css/flexslider.css" type="text/css" media="screen" />
-
+   
         
 
    </head>

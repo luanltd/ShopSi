@@ -63,16 +63,37 @@ namespace ShopSi.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.CreatedDate = DateTime.Now;
-                var dao = new UserDao().Insert(model);
-                if (dao > 0)
+                var dao = new UserDao();                
+                if (dao.CheckUserName(model.UserName)==false)
                 {
-                    return RedirectToAction("Index", "User");
+                    ModelState.AddModelError("", "Tài khoản đã tồn tại");
+                }
+                else if (dao.CheckEmail(model.Email)==false)
+                {
+                    ModelState.AddModelError("", "Email đã tồn tại");
+                    
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm thất bại");
+                    model.CreatedDate = DateTime.Now;
+                    if (!string.IsNullOrEmpty(model.Password))
+                    {
+                        var pwd = Common.MaHoaMD5.ToMD5(model.Password);
+                        model.Password = pwd;
+                    }
+                    var result = dao.Insert(model);
+                    if (result > 0)
+                    {
+                        ModelState.AddModelError("", "Thêm thành công");
+                        return RedirectToAction("Index", "User");
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Thêm thất bại");
+                    }
                 }
+              
             }
             
             return View();
@@ -89,7 +110,7 @@ namespace ShopSi.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Delete(long id)
         {
-            var dao = new UserDao().DeleteById(id);
+            new UserDao().DeleteById(id);
             return Json(new {
                 status=true
             });

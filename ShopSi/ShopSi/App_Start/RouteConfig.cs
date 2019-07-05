@@ -125,6 +125,15 @@ namespace ShopSi
 
            );
 
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+               name: "Thuong hieu",
+               url: "thuong-hieu",
+               defaults: new { controller = "Content", action = "Thuonghieu", id = UrlParameter.Optional },
+               namespaces: new string[] { "ShopSi.Controllers" }
+
+           );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
