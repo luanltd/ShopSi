@@ -1008,6 +1008,7 @@
     <Content Include="Views\Content\Index.cshtml" />
     <Content Include="Views\Content\Detail.cshtml" />
     <Content Include="Views\Content\Tag.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

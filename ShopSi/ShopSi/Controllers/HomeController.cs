@@ -91,11 +91,12 @@ namespace ShopSi.Controllers
 
         public ActionResult Search(string searching, int page = 1, int pageSize = 6)
         {
-            var model = new ProductCategoryDao().GetProductCategory(cateid);
+           // var model = new ProductCategoryDao().GetProductSearching(searching);
             int totalRecode = 0;
-            ViewBag.ProdcutCateId = new ProductCategoryDao().GetProductCateId(cateid, ref totalRecode, page, pageSize);
+            var model = new ProductCategoryDao().GetProductSearching(searching, ref totalRecode, page, pageSize);
             ViewBag.Total = totalRecode;
             ViewBag.Page = page;
+            ViewBag.Keyword = searching;
             int maxPage = 5;
             int totalPage = 0;
             totalPage = (int)Math.Ceiling((double)totalRecode / pageSize);
@@ -106,7 +107,7 @@ namespace ShopSi.Controllers
             ViewBag.Next = page + 1;
             ViewBag.Prev = page - 1;
             ViewBag.FeatureProduct = new ProductDao().GetListFeatureProduct(6);
-            ViewBag.ProType = new ProductTypeDao().GetProductType();
+           
             return View(model);
         }
     }

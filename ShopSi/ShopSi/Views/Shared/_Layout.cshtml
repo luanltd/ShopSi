@@ -80,12 +80,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </form>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    @*<form>
-
-                        <input type="text" value="Sản phẩm cầm tìm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Sản phẩm cần tìm';}" />
-                        <input type="submit" value="SEARCH" />
-
-                    </form>*@
                     <ul class="nav navbar-nav">
                         <li><a href="/">Trang chủ</a></li>
                         <li class="dropdown">
@@ -180,11 +174,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="join">
                 <h6>TÌM KIẾM SẢN PHẨM</h6>
                 <div class="sub-left-right">
-                    <form>
-
-                        <input type="text" value="Sản phẩm cầm tìm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Sản phẩm cần tìm';}" />
-                        <input type="submit" value="SEARCH" />
-
+                    <form action="/tim-kiem" method="get">
+                        <input type="text" placeholder="Sản phẩm cần tìm" id="txtSearching" name="searching" />
+                        <button type="submit" value="" class="btn" style="background-color:#816263;height:43px">TÌM KIẾM</button>
                     </form>
                 </div>
                 <div class="clearfix"> </div>

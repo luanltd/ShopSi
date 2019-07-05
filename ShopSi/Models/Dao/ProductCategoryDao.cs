@@ -24,5 +24,11 @@ namespace Models.Dao
             totalRecode = db.Products.Where(x => x.CategoryID == cateid).Count();
             return db.Products.Where(x => x.CategoryID == cateid).OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize).ToList();
         }
+
+        public List<Product> GetProductSearching(string searching, ref int totalRecode, int page=1,int pageSize=6)
+        {
+            totalRecode = db.Products.Where(x => x.Name.Contains(searching)).Count();
+            return db.Products.Where(x => x.Name.Contains(searching)).OrderByDescending(x => x.CreatedDate).Skip((page-1)*pageSize).Take(pageSize).ToList();
+        }
     }
 }
