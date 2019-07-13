@@ -16,6 +16,12 @@
         [Required(ErrorMessage ="Mời bạn nhập tài khoản")]
         public string UserName { get; set; }
 
+        [StringLength(20)]
+        //[Display(Name = "Tài khoản")]
+        //[Required(ErrorMessage = "Mời bạn nhập tài khoản")]
+        public string GroupID { get; set; }
+
+
         [StringLength(32)]
         [Display(Name = "Mật khẩu")]
         //[Required(ErrorMessage ="Mời bạn nhập vào mật khẩu")]
@@ -31,7 +37,7 @@
         public string Address { get; set; }
 
         [StringLength(50)]
-        [Required(ErrorMessage ="Mời bạn nhập vào Email")]
+        [Required(ErrorMessage = "Mời bạn nhập vào Email")]
         [EmailAddress]
         public string Email { get; set; }
 

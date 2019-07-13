@@ -29,7 +29,7 @@
                     <p>Nếu bạn đã đăng ký với chúng tôi thì vui lòng <a href="/dang-nhap">click here</a></p>
                     @using (Html.BeginForm("Register", "User", FormMethod.Post))
                     {
-                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        
                         <ul>
                             <li class="text-info">Tài khoản: </li>
                             <li>@Html.TextBoxFor(model=>model.UserName)</li>
@@ -54,10 +54,10 @@
                             <li class="text-info">Địa chỉ:</li>
                             <li>@Html.TextBoxFor(model => model.Address)</li>
                         </ul>
-                        <ul>
+                        @*<ul>
                             <li class="text-info">Trạng thái:</li>
                             <li>@Html.CheckBoxFor(model => model.Status)</li>
-                        </ul>
+                        </ul>*@
                         <button type="submit" class="btn btn-success">Đăng ký</button>
                         
                       

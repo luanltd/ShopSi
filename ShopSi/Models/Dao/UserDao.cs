@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Models.EF;
 using PagedList;
+using Common;
 
 namespace Models.Dao
 {
@@ -15,27 +16,55 @@ namespace Models.Dao
         {
             db = new ShopSiDbContext();
         }
-        public int Login(string username, string password)
+        public int Login(string username, string password, bool isLoginAdmin=false)
         {
             var model = db.Users.SingleOrDefault(x => x.UserName == username);
             if (model == null)
             {
                 return -1;
             }
-            else if (model.Status == false)
-            {
-                return -2;
-            }
+           
             else
             {
-                if (model.Password == password)
+                if (isLoginAdmin == true)
                 {
-                    return 1;
+                    if (model.GroupID == CommonUser.USER_ADMIN || model.GroupID == CommonUser.USER_MOD)
+                    {
+                        if (model.Status == false)
+                        {
+                            return -2;
+                        }
+                        else if (model.Password == password)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        return 3;
+                    }
                 }
+
                 else
                 {
-                    return 0;
+                    if (model.Status == false)
+                    {
+                        return -2;
+                    }
+                    else if (model.Password == password)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
+               
             }
           
         }
@@ -44,6 +73,12 @@ namespace Models.Dao
         {
           var user=  db.Users.SingleOrDefault(x => x.UserName == username);
           return user.ID;
+        }
+
+        public User GetUser(string username)
+        {
+            return  db.Users.SingleOrDefault(x => x.UserName == username);
+          
         }
 
         public long Insert(User model)
@@ -95,8 +130,23 @@ namespace Models.Dao
                 model.Phone = user.Phone;
                 model.Status = user.Status;
                 model.CreatedDate = DateTime.Now;
-                model.ProvinceID = user.ProvinceID;
-                model.DistrictID = user.DistrictID;
+                if (user.ProvinceID != null)
+                {
+                    model.ProvinceID = user.ProvinceID;
+                }
+                else
+                {
+                    model.ProvinceID = model.ProvinceID;
+                }
+                if (user.DistrictID != null)
+                {
+                    model.DistrictID = user.DistrictID;
+                }
+                else
+                {
+                    model.DistrictID = model.DistrictID;
+                }
+             
                 if (!string.IsNullOrEmpty(user.Password))
                 {
                     model.Password = user.Password;
@@ -132,6 +182,32 @@ namespace Models.Dao
                 return user.ID;
             }
 
+        }
+
+        public bool ChangeStatus(long id)
+        {
+            var model = db.Users.Find(id);
+            model.Status =! model.Status;
+            db.SaveChanges();
+            return model.Status;
+        }
+
+        public List<string> GetListCredential(string username)
+        {
+            var user = db.Users.Single(x => x.UserName == username);
+            var data = (from a in db.Credentials
+                       join b in db.UserGroups on a.UserGroupID equals b.ID
+                       join c in db.Roles on a.RoleID equals c.ID
+                       where b.ID == user.GroupID
+                       select new
+                       {
+                           RoleID = a.RoleID,
+                           UserGroupID = a.UserGroupID
+                       }).AsEnumerable().Select(x=>new Credential() {
+                           RoleID = x.RoleID,
+                           UserGroupID = x.UserGroupID
+                       });
+            return data.Select(x => x.RoleID).ToList();
         }
     }
 }

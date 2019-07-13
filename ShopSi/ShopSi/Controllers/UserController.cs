@@ -161,8 +161,10 @@ namespace ShopSi.Controllers
                     user.Address = model.Address;
                     user.Phone = model.Phone;
                     user.Name = model.Name;
+                    user.Email = model.Email;
+                    user.GroupID = "MEMBER";
                     user.CreatedDate = DateTime.Now;
-                    user.Status = model.Status;
+                    user.Status = true;
                     var result=dao.Insert(user);
                     if (result > 0)
                     {

@@ -221,6 +221,7 @@
     <Compile Include="Areas\Admin\Models\District.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\Province.cs" />
+    <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Common\CommonConstant.cs" />
@@ -254,6 +255,7 @@
     <Content Include="assets\admin\js\bootstrap.min.js" />
     <Content Include="assets\admin\js\CK\CKFinder.js" />
     <Content Include="assets\admin\js\controller\createController.js" />
+    <Content Include="assets\admin\js\controller\statusController.js" />
     <Content Include="assets\admin\js\controller\userController.js" />
     <Content Include="assets\admin\js\jquery-3.4.1.min.js" />
     <Content Include="assets\admin\js\npm.js" />

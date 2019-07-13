@@ -9,5 +9,6 @@ namespace ShopSi.Common
     {
         public static string user_session = "user_session";
         public static string cart_session = "cart_session";
+        public static string session_credential = "session_credentital";
     }
 }

@@ -73,7 +73,6 @@ namespace Models.Dao
             if (string.IsNullOrEmpty(model.MetaTitle))
             {
                 model.MetaTitle = StringHelper.ToUnsignString(model.Name);
-
             }
          
             db.SaveChanges();

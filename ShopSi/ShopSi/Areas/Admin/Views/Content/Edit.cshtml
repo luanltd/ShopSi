@@ -19,6 +19,7 @@
 
 @using (Html.BeginForm("Edit", "Content", FormMethod.Post))
 {
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">

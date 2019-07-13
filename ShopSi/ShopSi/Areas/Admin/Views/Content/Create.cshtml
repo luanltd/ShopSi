@@ -17,8 +17,9 @@
         <li class="breadcrumb-item active">Thêm tin tức</li>
     </ol>}
 
-@using (Html.BeginForm("Create","Content",FormMethod.Post)) 
+@using (Html.BeginForm("Create", "Content", FormMethod.Post))
 {
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">

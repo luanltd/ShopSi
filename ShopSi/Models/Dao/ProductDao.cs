@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.EF;
+using Common;
 
 namespace Models.Dao
 {
@@ -43,6 +44,11 @@ namespace Models.Dao
         }
         public long GetCreateProduct(Product model)
         {
+            if (string.IsNullOrEmpty(model.MetaTitle))
+            {
+                model.MetaTitle = StringHelper.ToUnsignString(model.Name);
+
+            }
             db.Products.Add(model);
             db.SaveChanges();
             return model.ID;

@@ -8,12 +8,14 @@ using System.Web.Mvc;
 using PagedList;
 using System.Xml.Linq;
 using ShopSi.Areas.Admin.Models;
+using ShopSi.Common;
 
 namespace ShopSi.Areas.Admin.Controllers
 {
     public class UserController : BaseController
     {
         // GET: Admin/User
+        //[HasCredential(RoleID="VIEW_USER")]
         public ActionResult Index(string searching, int page = 1,int pageSize=3)
         {
 
@@ -22,18 +24,21 @@ namespace ShopSi.Areas.Admin.Controllers
             return View(model);
         }
         [HttpGet]
+        //[HasCredential(RoleID = "ADD_USER")]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpGet]
+        //[HasCredential(RoleID = "EDIT_USER")]
         public ActionResult Edit(long id)
         {
             var model = new UserDao().GetUserById(id);
             return View(model);
         }
         [HttpPost]
+        //[HasCredential(RoleID = "EDIT_USER")]
         public ActionResult Edit(User user)
         {
             if (ModelState.IsValid)
@@ -59,6 +64,7 @@ namespace ShopSi.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        //[HasCredential(RoleID = "ADD_USER")]
         public ActionResult Create(User model)
         {
             if (ModelState.IsValid)
@@ -108,6 +114,7 @@ namespace ShopSi.Areas.Admin.Controllers
 
 
         [HttpPost]
+        //[HasCredential(RoleID = "DELETE_USER")]
         public JsonResult Delete(long id)
         {
             new UserDao().DeleteById(id);
@@ -157,6 +164,17 @@ namespace ShopSi.Areas.Admin.Controllers
             {
                 data = list,
                 status = true
+            });
+        }
+        
+        [HttpPost]
+        //[HasCredential(RoleID = "EDIT_USER")]
+        public JsonResult ChangeStatus(long id)
+        {
+            var result = new UserDao().ChangeStatus(id);
+            return Json(new
+            {
+                status = result
             });
         }
     }

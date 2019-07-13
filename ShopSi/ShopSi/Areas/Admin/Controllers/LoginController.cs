@@ -23,14 +23,18 @@ namespace ShopSi.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                var result = dao.Login(model.UserName,MaHoaMD5.ToMD5(model.Password));
+                var result = dao.Login(model.UserName,MaHoaMD5.ToMD5(model.Password),true);
                 if (result == 1)
                 {
                     
                     var sess = new CommonLogin();
-                    var userID = dao.GetById(model.UserName);
-                    sess.ID = userID;
-                    sess.UserName = model.UserName;
+                    var user = dao.GetUser(model.UserName);
+                    
+                    sess.ID = user.ID;
+                    sess.UserName = user.UserName;
+                    sess.GroupID = user.GroupID;
+                    var credentials = dao.GetListCredential(model.UserName);
+                    Session[CommonConstant.session_credential] = credentials;
                     Session[CommonConstant.user_session] = sess;
 
                     return Redirect("/Admin/Home");
@@ -42,6 +46,10 @@ namespace ShopSi.Areas.Admin.Controllers
                 else if (result == -1)
                 {
                     ModelState.AddModelError("", "Tài khoản không tồn tại");
+                }
+                else if (result == 3)
+                {
+                    ModelState.AddModelError("", "Bạn không có quyền đăng nhập");
                 }
                 else
                 {
