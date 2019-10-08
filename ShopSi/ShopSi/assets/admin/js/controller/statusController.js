@@ -1,15 +1,15 @@
-﻿var status = {
-    init: function () {
-        status.registerEvent();
+﻿var status1 = {
+    init1: function () {
+        status1.registerEvent1();
     },
-    registerEvent: function () {
-        $('.btn_active').off('click').on('click', function (e) {
+    registerEvent1: function () {
+        $('.btn-active').off('click').on('click', function (e) {
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
             $.ajax({
                 url: "/Admin/User/ChangeStatus",
-                data: {id: id},
+                data: { id: id },
                 type: "POST",
                 dataType: "json",
                 success: function (res) {
@@ -24,5 +24,6 @@
             });
         });
     }
-}
-status.init();
+};
+
+status1.init1();

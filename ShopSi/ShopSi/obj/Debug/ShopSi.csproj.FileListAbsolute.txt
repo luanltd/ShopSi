@@ -176,8 +176,11 @@ E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Microsoft.Owin.Security.OAuth.x
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Microsoft.Owin.Security.Google.xml
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Microsoft.Owin.Security.Twitter.xml
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\obj\Debug\ShopSi.csprojResolveAssemblyReference.cache
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\obj\Debug\ShopSi.dll
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\obj\Debug\ShopSi.pdb
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Facebook.dll
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Facebook.xml
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\bin\Models.dll.config
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\obj\Debug\ShopSi.csprojAssemblyReference.cache
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\obj\Debug\ShopSi.csproj.CoreCompileInputs.cache
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\ShopSi\obj\Debug\ShopSi.csproj.CopyComplete

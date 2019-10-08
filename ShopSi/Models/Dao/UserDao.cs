@@ -12,10 +12,12 @@ namespace Models.Dao
    public class UserDao
     {
         ShopSiDbContext db = null;
+        //contructions
         public UserDao()
         {
             db = new ShopSiDbContext();
         }
+        //Hàm login
         public int Login(string username, string password, bool isLoginAdmin=false)
         {
             var model = db.Users.SingleOrDefault(x => x.UserName == username);
@@ -68,25 +70,26 @@ namespace Models.Dao
             }
           
         }
-
+        //Hàm lấy ra ID của user
         public long GetById(string username)
         {
           var user=  db.Users.SingleOrDefault(x => x.UserName == username);
           return user.ID;
         }
-
+        //Hàm lấy ra User
         public User GetUser(string username)
         {
             return  db.Users.SingleOrDefault(x => x.UserName == username);
           
         }
-
+        //Hàm thêm user
         public long Insert(User model)
         {
             db.Users.Add(model);
             db.SaveChanges();
             return model.ID;
         }
+        //hàm kiểm tra username có tồn tại không
         public bool CheckUserName(string username)
         {
             var model = db.Users.SingleOrDefault(x => x.UserName == username);
@@ -95,6 +98,7 @@ namespace Models.Dao
             else
                 return false;
         }
+        //hàm kiểm tra email có tồn tại không
         public bool CheckEmail(string email)
         {
             var model = db.Users.SingleOrDefault(x => x.Email == email);
@@ -103,6 +107,7 @@ namespace Models.Dao
             else
                 return false;
         }
+        //hàm lấy ra tất cả user và phân trang
         public IEnumerable<User> GetAllUser(string searching,int page,int pageSize)
         {
             IEnumerable<User> model = db.Users;
@@ -113,12 +118,12 @@ namespace Models.Dao
             return model = model.OrderByDescending(x => x.ID).ToPagedList(page,pageSize);
            // return model;
         }
-
+        //hàm lấy ra user khi có id
         public User GetUserById(long id)
         {
             return db.Users.Find(id);
         }
-
+        //hàm cập nhập user
         public bool Update(User user)
         {
             try
@@ -159,7 +164,7 @@ namespace Models.Dao
                 return false;
             }
         }
-
+        //hàm xóa user theo id
         public bool DeleteById(long id)
         {
             var model =db.Users.Find(id);
@@ -167,7 +172,7 @@ namespace Models.Dao
             db.SaveChanges();
             return true;
         }
-
+        //hàm thêm user thông qua facebook
         public long InsertForFacebook(User model)
         {
             var user = db.Users.SingleOrDefault(x => x.UserName == model.UserName);
@@ -183,7 +188,7 @@ namespace Models.Dao
             }
 
         }
-
+        //hàm thay đổi trạng thái cho phép khóa hoặc kích hoạt người dùng
         public bool ChangeStatus(long id)
         {
             var model = db.Users.Find(id);
@@ -191,7 +196,7 @@ namespace Models.Dao
             db.SaveChanges();
             return model.Status;
         }
-
+        //hàm phân quyền người dùng
         public List<string> GetListCredential(string username)
         {
             var user = db.Users.Single(x => x.UserName == username);

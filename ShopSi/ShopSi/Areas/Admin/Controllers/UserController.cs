@@ -23,21 +23,70 @@ namespace ShopSi.Areas.Admin.Controllers
             ViewBag.search = searching;
             return View(model);
         }
+
+        
         [HttpGet]
+        //Thêm bản ghi, hiển thị form thêm bản
         //[HasCredential(RoleID = "ADD_USER")]
         public ActionResult Create()
         {
             return View();
         }
 
+        [HttpPost]
+        //Thêm bản ghi, nhận nội dung khi nhấn submit
+        //[HasCredential(RoleID = "ADD_USER")]
+        public ActionResult Create(User model)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new UserDao();
+                if (dao.CheckUserName(model.UserName) == false)
+                {
+                    ModelState.AddModelError("", "Tài khoản đã tồn tại");
+                }
+                else if (dao.CheckEmail(model.Email) == false)
+                {
+                    ModelState.AddModelError("", "Email đã tồn tại");
+
+                }
+                else
+                {
+                    model.CreatedDate = DateTime.Now;
+                    if (!string.IsNullOrEmpty(model.Password))
+                    {
+                        var pwd = Common.MaHoaMD5.ToMD5(model.Password);
+                        model.Password = pwd;
+                    }
+                    var result = dao.Insert(model);
+                    if (result > 0)
+                    {
+                        ModelState.AddModelError("", "Thêm thành công");
+                        return RedirectToAction("Index", "User");
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Thêm thất bại");
+                    }
+                }
+
+            }
+
+            return View();
+        }
+
         [HttpGet]
+        //Sửa bản ghi, hiển thị thông tin trên form
         //[HasCredential(RoleID = "EDIT_USER")]
         public ActionResult Edit(long id)
         {
             var model = new UserDao().GetUserById(id);
             return View(model);
         }
+       
         [HttpPost]
+        //Sửa bản ghi
         //[HasCredential(RoleID = "EDIT_USER")]
         public ActionResult Edit(User user)
         {
@@ -61,59 +110,17 @@ namespace ShopSi.Areas.Admin.Controllers
             }
 
             return View("Index");
-        }
-
-        [HttpPost]
-        //[HasCredential(RoleID = "ADD_USER")]
-        public ActionResult Create(User model)
-        {
-            if (ModelState.IsValid)
-            {
-                var dao = new UserDao();                
-                if (dao.CheckUserName(model.UserName)==false)
-                {
-                    ModelState.AddModelError("", "Tài khoản đã tồn tại");
-                }
-                else if (dao.CheckEmail(model.Email)==false)
-                {
-                    ModelState.AddModelError("", "Email đã tồn tại");
-                    
-                }
-                else
-                {
-                    model.CreatedDate = DateTime.Now;
-                    if (!string.IsNullOrEmpty(model.Password))
-                    {
-                        var pwd = Common.MaHoaMD5.ToMD5(model.Password);
-                        model.Password = pwd;
-                    }
-                    var result = dao.Insert(model);
-                    if (result > 0)
-                    {
-                        ModelState.AddModelError("", "Thêm thành công");
-                        return RedirectToAction("Index", "User");
-
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Thêm thất bại");
-                    }
-                }
-              
-            }
-            
-            return View();
-        }
-
+        }      
+      
         //[HttpDelete]
         //public ActionResult Delete(long id)
         //{
         //    var dao = new UserDao().DeleteById(id);
         //    return RedirectToAction("Index","User");
         //}
-
-
+        
         [HttpPost]
+        //hàm xóa user trả về dạng json gọi từ ajax
         //[HasCredential(RoleID = "DELETE_USER")]
         public JsonResult Delete(long id)
         {
@@ -122,7 +129,10 @@ namespace ShopSi.Areas.Admin.Controllers
                 status=true
             });
         }
+
+
         [HttpPost]
+        //hàm load province trả về json cho javascript
         public JsonResult LoadProvince()
         {
             var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/admin/data/Provinces_Data.xml"));
@@ -143,7 +153,7 @@ namespace ShopSi.Areas.Admin.Controllers
             });
         }
 
-
+        //hàm load district trả về json cho javascript
         [HttpPost]
         public JsonResult LoadDistrict(int provinceID)
         {
@@ -168,6 +178,7 @@ namespace ShopSi.Areas.Admin.Controllers
         }
         
         [HttpPost]
+        //hàm thay đổi trạng thái trả về json
         //[HasCredential(RoleID = "EDIT_USER")]
         public JsonResult ChangeStatus(long id)
         {

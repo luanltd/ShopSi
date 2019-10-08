@@ -7,3 +7,5 @@ E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\bin\Debug\Common.dll
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\bin\Debug\Common.pdb
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\obj\Debug\Common.dll
 E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\obj\Debug\Common.pdb
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\obj\Debug\Common.csprojAssemblyReference.cache
+E:\HOC LAP TRINH\Github\ShopSi\ShopSi\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache

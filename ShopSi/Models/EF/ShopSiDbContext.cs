@@ -5,7 +5,7 @@ namespace Models.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class ShopSiDbContext : DbContext
+    public  class ShopSiDbContext : DbContext
     {
         public ShopSiDbContext()
             : base("name=ShopSiDbContext")
